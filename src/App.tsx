@@ -8,6 +8,8 @@ function App() {
       <header className="App-header">
         <img src={logo} width="200px" style={{objectFit: "contain"}} className="App-logo" alt="logo" />
       </header>
+
+      <p> Comming Soon </p>
     </div>
   );
 }
