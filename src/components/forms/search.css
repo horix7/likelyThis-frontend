@@ -7,15 +7,19 @@
     box-shadow: 0 1rem 3rem rgba(0, 58, 55, 0.375)!important;
     display: grid;
     grid-template-columns: 1fr 100px;
-    border-radius: 50px;
+    border-radius: 100px;
+    top: 0;
+    position: sticky;
 }
 
 
 .search-icon {
-    /* background-color: red; */
-    width: 100%;
+    background-color: #FF914D;
+    border-radius: 100px;
+    width: 90%;
     display: inline-block;
     height: 100%;
+    border: 2px solid white;
     font-size: small;
     vertical-align: middle;
 }

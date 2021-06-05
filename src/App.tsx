@@ -1,15 +1,13 @@
 import React from 'react';
-import logo from './assets/logo.png';
 import './App.css';
 import SearcField from "./components/forms/searchFields"
-
+import HomeNav from "./components/navigation/homeNav"
 
 function App() {
   return (
     <div className="App">
+        <HomeNav />
       <header className="App-header">
-        {/* <img src={logo} width="200px" style={{objectFit: "contain"}} className="App-logo" alt="logo" /> */}
-        {/* <img src={logo} width="200px" style={{objectFit: "contain"}} alt="logo" /> */}
         <SearcField />
       </header>
 
