@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.searchBox {
+    width: 80vw;
+    padding: 3px;
+    text-align: center;
+    box-shadow: 0 1rem 3rem rgba(0, 58, 55, 0.375)!important;
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    border-radius: 50px;
+}
+
+
+.search-icon {
+    /* background-color: red; */
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    font-size: small;
+    vertical-align: middle;
+}
+
+.searchInput {
+    outline: none;
+    border-radius: 50px;
+    border: none;
+    width: 100%;
+    padding-left: 30px;
+    text-align: start;
+    font-weight: lighter;
+    color: grey;
+    font-size: xx-large;
+    font-family: 'Roboto', sans-serif;
+}
+
+.searchAction {
+    height: 10%;
+}
