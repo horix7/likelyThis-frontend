@@ -12,8 +12,21 @@
     position: sticky;
 }
 
+.suggest {
+    font-weight: lighter;
+    font-size: medium;
+    border-bottom: 1px solid whitesmoke;
+    margin-left: 10%;
+    text-align: start;
+    padding:0px 5px;
+}
+
+.suggest:hover {
+    cursor: pointer;
+}
+
 .searchBox:hover {
-    padding-bottom: 400px;
+    padding-bottom: 0px;
     padding-left: 20px;
     text-align: center;
 }
