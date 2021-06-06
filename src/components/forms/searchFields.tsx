@@ -9,10 +9,10 @@ export default class SearchField extends Component<any> {
 
         return (
             <Fragment>
-                <div className="searchBox">
-                    <input type="text" className="searchInput"/>
+                <div className="searchBox" id="searchBox">
+                    <input type="text"  className="searchInput"/>
                     <div className="searchAction">
-                    <IconContext.Provider value={{ color: "#5CE1E6", className: "search-icon" }}>
+                    <IconContext.Provider value={{ color: "#FF914D", className: "search-icon" }}>
                         <div>
                             <BsArrowRightShort />
                         </div>

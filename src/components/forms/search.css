@@ -4,7 +4,7 @@
     width: 80vw;
     padding: 3px;
     text-align: center;
-    box-shadow: 0 1rem 3rem rgba(0, 58, 55, 0.375)!important;
+    box-shadow: 0 1.4rem 3rem rgba(0, 66, 63, 0.375)!important;
     display: grid;
     grid-template-columns: 1fr 100px;
     border-radius: 100px;
@@ -12,14 +12,19 @@
     position: sticky;
 }
 
+.searchBox:hover {
+    padding-bottom: 400px;
+    padding-left: 20px;
+    text-align: center;
+}
 
 .search-icon {
-    background-color: #FF914D;
-    border-radius: 100px;
+    background-color: #5CE1E6;
+    border-radius: 50px;
     width: 90%;
     display: inline-block;
     height: 100%;
-    border: 2px solid white;
+    border: 3px solid white;
     font-size: small;
     vertical-align: middle;
 }
@@ -27,13 +32,14 @@
 .searchInput {
     outline: none;
     border-radius: 50px;
+    text-align: center;
+    background: transparent;
     border: none;
     width: 100%;
     padding-left: 30px;
-    text-align: start;
     font-weight: lighter;
-    color: grey;
     font-size: xx-large;
+    border-bottom: 1px solid rgb(230, 230, 230);
     font-family: 'Roboto', sans-serif;
 }
 

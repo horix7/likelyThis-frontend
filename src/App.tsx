@@ -11,7 +11,6 @@ function App() {
         <SearcField />
       </header>
 
-      <p> Comming Soon </p>
     </div>
   );
 }
