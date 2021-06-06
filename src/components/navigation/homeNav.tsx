@@ -15,8 +15,6 @@ export default class HomeNav extends Component<any> {
                    </div>
 
                    <div className="right_links">
-                       <img src={logo} width="200px" alt="logo"/>
-
                    </div>
                 </div>
             </Fragment>

@@ -4,7 +4,7 @@
     width: 80vw;
     padding: 3px;
     text-align: center;
-    box-shadow: 0 1.4rem 3rem rgba(0, 66, 63, 0.375)!important;
+    box-shadow: 0 1.4rem 3rem rgba(0, 66, 63, 0.275)!important;
     display: grid;
     grid-template-columns: 1fr 100px;
     border-radius: 100px;
@@ -18,6 +18,21 @@
     text-align: center;
 }
 
+.logoHolder {
+    text-align: start;
+    float: inline-start;
+    padding: 10px;
+    width: 80vw;
+
+}
+
+.homeText {
+    text-align: start;
+    width: 80vw;
+    font-weight: lighter;
+    margin-left: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .search-icon {
     background-color: #5CE1E6;
     border-radius: 50px;
@@ -38,7 +53,7 @@
     width: 100%;
     padding-left: 30px;
     font-weight: lighter;
-    color: grey;
+    color: rgb(78, 78, 78);
     font-size: xx-large;
     border-bottom: 1px solid whitesmoke;
     font-family: 'Roboto', sans-serif;

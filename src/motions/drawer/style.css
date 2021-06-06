@@ -24,7 +24,8 @@
     left: 0;
     bottom: 0;
     width: 300px;
-    background: #fff;
+    background:  rgba(239, 255, 253, 0.795);
+    
   }
   
   button {
@@ -58,10 +59,14 @@
   
   li {
     list-style: none;
-    background: white;
+    background: wheat;
     margin-bottom: 20px;
-    display: flex;
+    /* display: flex; */
+    padding: 10px;
     align-items: center;
+    text-align: center;
+    color: grey;
+    border-radius: 50px;
     cursor: pointer;
   }
   
