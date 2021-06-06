@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import logo from "../../assets/logo.png"
 import "./home.nav.css"
+import { Menu } from "../..//motions/drawer/drawer"
 
 export default class HomeNav extends Component<any> {
 
@@ -10,11 +11,12 @@ export default class HomeNav extends Component<any> {
             <Fragment> 
                 <div className="homeNav">
                    <div className="left_links">
-                       <img src={logo} width="200px" alt="logo"/>
+                       <Menu />
                    </div>
 
                    <div className="right_links">
-                        <a href="#">About</a>
+                       <img src={logo} width="200px" alt="logo"/>
+
                    </div>
                 </div>
             </Fragment>

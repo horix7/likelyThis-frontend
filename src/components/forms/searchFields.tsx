@@ -12,7 +12,7 @@ export default class SearchField extends Component<any> {
                 <div className="searchBox" id="searchBox">
                     <input type="text"  className="searchInput"/>
                     <div className="searchAction">
-                    <IconContext.Provider value={{ color: "#FF914D", className: "search-icon" }}>
+                    <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
                         <div>
                             <BsArrowRightShort />
                         </div>
