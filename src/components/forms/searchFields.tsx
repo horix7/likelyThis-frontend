@@ -9,7 +9,6 @@ import { BsArrowReturnRight } from "react-icons/bs";
 import { HiOutlineLightBulb  } from "react-icons/hi";
 import { gql, useQuery } from '@apollo/client';
 
-
 export default class SearchField extends Component<any> {
 
     state = {
@@ -33,7 +32,7 @@ export default class SearchField extends Component<any> {
           }
             `;
 
-            const data = useQuery(Suggestions)
+            const {data, loading, error} = useQuery(Suggestions)
 
             console.log(data)
 
