@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { LinearProgress } from "@material-ui/core";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { HiOutlineLightBulb  } from "react-icons/hi";
+import { gql, useQuery } from '@apollo/client';
 
 
 export default class SearchField extends Component<any> {
@@ -24,6 +25,17 @@ export default class SearchField extends Component<any> {
         const newState = {...this.state}
         newState.text = event.target.value 
         this.setState({...newState})
+        const Suggestions = gql` 
+        {
+            courses (where: { _q: ${event.target.value} }) {
+              title
+            }
+          }
+            `;
+
+            const data = useQuery(Suggestions)
+
+            console.log(data)
 
     }
 
