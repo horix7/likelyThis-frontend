@@ -5,6 +5,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import logo from "../../assets/logo.png"
 import { motion } from "framer-motion";
 import { LinearProgress } from "@material-ui/core";
+import { BsArrowReturnRight } from "react-icons/bs";
 
 
 export default class SearchField extends Component<any> {
@@ -14,7 +15,7 @@ export default class SearchField extends Component<any> {
             scale: 0
         },
 
-        text: null,
+        text: "",
         suggestions: []
     }
 
@@ -46,15 +47,21 @@ export default class SearchField extends Component<any> {
                     </div>  
                     <div className="suggestions">
                    <>
-                   { this.state.text ? <div className="suggest">
-                            <p> {this.state.text} </p>
+                   { this.state.text && this.state.text.split("").length ? <div className="suggest">
+                            <div className="twoGridsEnds">
+                           <IconContext.Provider value={{ color: "grey", className: "suggest-icon" }}>
+                                <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2}}} > 
+                                <BsArrowReturnRight /> &nbsp; {this.state.text}  
+                                </motion.div>
+                            </IconContext.Provider>
+                            </div>
                         </div> : null } </>
 
                        {this.state.suggestions.length > 1 ? this.state.suggestions.map(() => (
                         <div className="suggest">
                             <p> {this.state.text} </p>
                         </div>
-                       )): this.state.text ?  <LinearProgress style={{width: "80%", marginLeft: "10%"}} /> : null }
+                       )): this.state.text && this.state.text.split("").length ?  <LinearProgress  style={{width: "80%", marginLeft: "10%", backgroundColor: "white", color: "red"}} /> : null }
                     </div>
                 </div>
                 </motion.div>

@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.twoGridsEnds {
+  display: grid;
+  grid-template-columns: 80% 10px;
+}

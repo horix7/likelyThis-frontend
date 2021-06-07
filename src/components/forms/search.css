@@ -4,7 +4,8 @@
     width: 80vw;
     padding: 3px;
     text-align: center;
-    box-shadow: 0 1.4rem 3rem rgba(0, 66, 63, 0.275)!important;
+    background-color: white;
+    box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
     display: grid;
     grid-template-columns: 1fr 100px;
     border-radius: 100px;
@@ -55,6 +56,14 @@
     border: 3px solid white;
     font-size: small;
     vertical-align: middle;
+}
+
+.suggest-icon {
+    display: inline-block;
+    height: 100%;
+    font-size: medium;
+    vertical-align: middle;
+    width: 30px;
 }
 
 .searchInput {
