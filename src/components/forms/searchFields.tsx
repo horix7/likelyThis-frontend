@@ -6,6 +6,7 @@ import logo from "../../assets/logo.png"
 import { motion } from "framer-motion";
 import { LinearProgress } from "@material-ui/core";
 import { BsArrowReturnRight } from "react-icons/bs";
+import { HiOutlineLightBulb  } from "react-icons/hi";
 
 
 export default class SearchField extends Component<any> {
@@ -34,7 +35,7 @@ export default class SearchField extends Component<any> {
                 <div className="logoHolder">
                 <img src={logo} width="200px" alt="logo"/>
                 </div>
-                <motion.div  whileHover={{  scale: 1.05, transition: { duration: 0.5 }}}>
+                <motion.div  whileHover={{  scale: 1.01, transition: { duration: 0.5 }}}>
                 <div className="searchBox" id="searchBox">
                     <input type="text" onChange={this.handleInputChange} className="searchInput"/>
                     <div className="searchAction">
@@ -57,11 +58,21 @@ export default class SearchField extends Component<any> {
                             </div>
                         </div> : null } </>
 
-                       {this.state.suggestions.length > 1 ? this.state.suggestions.map(() => (
+                       {this.state.suggestions.length >= 1 ? <> 
+                        <div className="suggest-mid">
+                        <IconContext.Provider value={{ color: "grey", className: "suggest-icon" }}>
+                                <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2}}} > 
+                                <HiOutlineLightBulb /> &nbsp; {"did you mean "}
+                                </motion.div>
+                            </IconContext.Provider>
+                            </div>
+                       {this.state.suggestions.map(() => (
                         <div className="suggest">
+                         <motion.div whileHover={{ scale: 0.97, transition: { duration: 0.2}}} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} > 
                             <p> {this.state.text} </p>
+                            </motion.div>
                         </div>
-                       )): this.state.text && this.state.text.split("").length ?  <LinearProgress  style={{width: "80%", marginLeft: "10%", backgroundColor: "white", color: "red"}} /> : null }
+                       )) } </> : this.state.text && this.state.text.split("").length ?  <LinearProgress  style={{width: "80%", marginLeft: "10%", backgroundColor: "white", color: "red"}} /> : null }
                     </div>
                 </div>
                 </motion.div>
