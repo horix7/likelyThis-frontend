@@ -18,33 +18,33 @@ export default function SearchField () {
        suggestions: []
    })
     const handleInputChange = async (event: any ) => {
-        const newState = {...state}
-        newState.text = event.target.value 
-        setState({...newState})
-        
-    }
+
 
     const searchCourse = async (graphQuery: string) => {
-        console.log("arrived ")
         const results = await axios.post(
             "http://localhost:1337/graphql", {
                 query: graphQuery
             }
         )
 
-        console.log(results)
+        let newState = {...state}
+        newState.suggestions = results.data.data.courses
+
+        setState(newState)
     }
-    useEffect(() => {
-        const Suggestion = `
-        query getCourses{
-            courses(where: { _q: \"${state.text}\" }) {
-            title
-            }
+    const newState = {...state}
+    newState.text = event.target.value 
+    setState({...newState})
+    const Suggestion = `
+    query getCourses{
+        courses(where: { _q: \"${event.target.value}\" }) {
+        title
         }
-        `
-        console.log(Suggestion)
-        searchCourse(Suggestion)
-    }, [state])
+    }
+    `
+    searchCourse(Suggestion)
+}
+   
         return (
             <Fragment>
                 <div className="logoHolder">
@@ -81,10 +81,10 @@ export default function SearchField () {
                                 </motion.div>
                             </IconContext.Provider>
                             </div>
-                       {state.suggestions.map(() => (
+                       {state.suggestions.map((element: any) => (
                         <div className="suggest">
                          <motion.div whileHover={{ scale: 0.97, transition: { duration: 0.2}}} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} > 
-                            <p> {state.text} </p>
+                            <p> {element.title} </p>
                             </motion.div>
                         </div>
                        )) } </> : state.text && state.text.split("").length ?  <LinearProgress  style={{width: "80%", marginLeft: "10%", backgroundColor: "white", color: "red"}} /> : null }
