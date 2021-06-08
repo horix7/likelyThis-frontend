@@ -60,7 +60,9 @@ const scaleDown = { scale: 0.97, transition: { duration: 0.2}}
         return (
             <Fragment>
                 <div className="logoHolder">
+                <motion.div transition={{  type: "spring",  stiffness: 700, damping: 30}}>
                 <img src={logo} width="200px" alt="logo"/>
+                </motion.div>
                 </div>
                 <motion.div  whileHover={{  scale: 1.01, transition: { duration: 0.5 }}}>
                 <div className="searchBox" id="searchBox">
