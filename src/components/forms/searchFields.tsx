@@ -1,4 +1,4 @@
-import React, {useState, Fragment } from 'react'
+import React, {useState, Fragment, useEffect } from 'react'
 import "./search.css"
 import { IconContext } from "react-icons";
 import { BsArrowRightShort } from "react-icons/bs";
@@ -8,14 +8,8 @@ import { LinearProgress } from "@material-ui/core";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { HiOutlineLightBulb  } from "react-icons/hi";
 import { gql, useQuery } from '@apollo/client';
+import axios from 'axios';
 
-const Suggestion = gql`
-query getCourses{
-    courses(where: { _q: "math"}) {
-      title
-    }
-  }
-`
 
 export default function SearchField () {
 
@@ -23,20 +17,34 @@ export default function SearchField () {
        text: "",
        suggestions: []
    })
-    const handleInputChange = (event: any ) => {
+    const handleInputChange = async (event: any ) => {
         const newState = {...state}
         newState.text = event.target.value 
         setState({...newState})
-       
-
+        
     }
 
+    const searchCourse = async (graphQuery: string) => {
+        console.log("arrived ")
+        const results = await axios.post(
+            "http://localhost:1337/graphql", {
+                query: graphQuery
+            }
+        )
 
-
-    const {data, loading, error} = useQuery(Suggestion)
-
-    console.log(data)
-
+        console.log(results)
+    }
+    useEffect(() => {
+        const Suggestion = `
+        query getCourses{
+            courses(where: { _q: \"${state.text}\" }) {
+            title
+            }
+        }
+        `
+        console.log(Suggestion)
+        searchCourse(Suggestion)
+    }, [state])
         return (
             <Fragment>
                 <div className="logoHolder">
