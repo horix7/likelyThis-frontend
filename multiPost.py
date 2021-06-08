@@ -2,7 +2,7 @@ import csv
 import json
 import requests
 
-url = "http://localhost:1337/courses/"
+url = "https://likelythis.herokuapp.com/courses/"
 
 
 csvfile = open('courses.csv', 'r')
@@ -17,8 +17,6 @@ for row in reader:
     json.dump(row, jsonfile)
     jsonfile.write('\n')
 
-print(courses)
-
 for element in courses:
     data ={"title": element["title"]}
     payload = json.dumps(data)
@@ -30,4 +28,4 @@ for element in courses:
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    print(response.text)
+    print(response)
