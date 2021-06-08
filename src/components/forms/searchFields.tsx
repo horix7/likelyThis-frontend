@@ -17,6 +17,8 @@ export default function SearchField () {
        text: "",
        suggestions: []
    })
+
+   const [search, setSearch] = useState("")
     const handleInputChange = async (event: any ) => {
 
 
@@ -28,13 +30,19 @@ export default function SearchField () {
         )
 
         let newState = {...state}
-        newState.suggestions = results.data.data.courses
+
+        const courses = !results.data.data.courses ? [] : results.data.data.courses
+        newState.suggestions = courses
 
         setState(newState)
     }
     const newState = {...state}
     newState.text = event.target.value 
     setState({...newState})
+    setSearch(event.target.value)
+    if(event.target.value.length < 1) {
+        state.suggestions = []
+    }else  {
     const Suggestion = `
     query getCourses{
         courses(where: { _q: \"${event.target.value}\" }) {
@@ -44,6 +52,10 @@ export default function SearchField () {
     `
     searchCourse(Suggestion)
 }
+}
+
+const scaleUp = { scale: 1.08, transition: { duration: 0.2}}
+const scaleDown = { scale: 0.97, transition: { duration: 0.2}}
    
         return (
             <Fragment>
@@ -63,11 +75,11 @@ export default function SearchField () {
                     </div>  
                     <div className="suggestions">
                    <>
-                   { state.text && state.text.split("").length ? <div className="suggest">
+                   { search && search.length >= 1  ? <div className="suggest">
                             <div className="twoGridsEnds">
                            <IconContext.Provider value={{ color: "grey", className: "suggest-icon" }}>
-                                <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2}}} > 
-                                <BsArrowReturnRight /> &nbsp; {state.text}  
+                                <motion.div whileHover={scaleUp} > 
+                                <BsArrowReturnRight /> &nbsp; {search}  
                                 </motion.div>
                             </IconContext.Provider>
                             </div>
@@ -76,14 +88,14 @@ export default function SearchField () {
                        {state.suggestions.length >= 1 ? <> 
                         <div className="suggest-mid">
                         <IconContext.Provider value={{ color: "grey", className: "suggest-icon" }}>
-                                <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2}}} > 
+                                <motion.div whileHover={scaleDown} > 
                                 <HiOutlineLightBulb /> &nbsp; {"did you mean "}
                                 </motion.div>
                             </IconContext.Provider>
                             </div>
                        {state.suggestions.map((element: any) => (
                         <div className="suggest">
-                         <motion.div whileHover={{ scale: 0.97, transition: { duration: 0.2}}} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} > 
+                         <motion.div whileHover={scaleUp} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} > 
                             <p> {element.title} </p>
                             </motion.div>
                         </div>
