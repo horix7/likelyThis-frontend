@@ -24,7 +24,7 @@ export default function SearchField () {
 
     const searchCourse = async (graphQuery: string) => {
         const results = await axios.post(
-            "https://likelythis.herokuapp.com/graphql", {
+            "http://localhost:1337/graphql", {
                 query: graphQuery
             }
         )
