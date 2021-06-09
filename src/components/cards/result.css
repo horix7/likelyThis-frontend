@@ -1,4 +1,7 @@
 
+.boxHolder {
+    text-align: center;
+}
 .resultBox {
     margin-left: 20%;
     width: 60%;
@@ -16,12 +19,12 @@
     object-fit: contain;
     position: relative;
     padding: 10px;
-    margin-top: -20px;
+    margin-top: 0px;
     border-radius: 100px;
 }
 
 .result-text {
-    color: grey;
+    color: rgb(102, 102, 102);
 }
 
 .likely {
@@ -31,7 +34,7 @@
 }
 
 .not-likely {
-    color: red;
+    color: rgba(196, 0, 0, 0.836);
     font-weight: bold;
     padding: 2px;
 }
