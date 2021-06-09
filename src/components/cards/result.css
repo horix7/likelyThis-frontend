@@ -29,3 +29,9 @@
     font-weight: bold;
     padding: 2px;
 }
+
+.not-likely {
+    color: red;
+    font-weight: bold;
+    padding: 2px;
+}
