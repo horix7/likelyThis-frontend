@@ -3,7 +3,7 @@ import '../App.css';
 import SearcField from "../components/forms/searchFields"
 import HomeNav from "../components/navigation/homeNav"
 
-export default function Home() {
+export default function Home(props: any) {
   return (
       <Fragment>
       <HomeNav />

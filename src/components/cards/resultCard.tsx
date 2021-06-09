@@ -6,7 +6,7 @@ import { IconContext  } from "react-icons";
 import { GiCheckMark } from "react-icons/gi";
 import { BsExclamation  } from "react-icons/bs";
 
-export default function ResultCard() {
+export default function ResultCard(props: any) {
     const [state, setState] = useState({
         likely: false
     })
