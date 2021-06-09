@@ -15,12 +15,35 @@ export default function SearchField () {
 
    const [state, setState] = useState({
        text: "",
-       suggestions: []
+       suggestions: [],
+       match: false
    })
 
    const [search, setSearch] = useState("")
-    const handleInputChange = async (event: any ) => {
+   const checkMatch = async (title :string) => {
+    const titleQuery = `
+    query getCourses{
+        courses(where: { _q: \"${title}\" }) {
+        title
+        }
+    }
+    `
+    const results = await axios.post(
+        "http://localhost:1337/graphql", {
+            query: titleQuery
+        }
+    )
 
+    let newState = {...state}
+
+    const courses = !results.data.data.courses ? [] : results.data.data.courses
+    newState.match = courses.length === 1
+    
+    setState(newState)
+
+    console.log(state.match)
+}
+    const handleInputChange = async (event: any ) => {
 
     const searchCourse = async (graphQuery: string) => {
         const results = await axios.post(
@@ -56,6 +79,12 @@ export default function SearchField () {
 
 const scaleUp = { scale: 1.08, transition: { duration: 0.2}}
 const scaleDown = { scale: 0.97, transition: { duration: 0.2}}
+
+window.addEventListener("keydown", (event: any) => {
+    if(event.key === "Enter") {
+        checkMatch(search)
+    }
+})
    
         return (
             <Fragment>
@@ -80,7 +109,7 @@ const scaleDown = { scale: 0.97, transition: { duration: 0.2}}
                    { search && search.length >= 1  ? <div className="suggest">
                             <div className="twoGridsEnds">
                            <IconContext.Provider value={{ color: "grey", className: "suggest-icon" }}>
-                                <motion.div whileHover={scaleUp} > 
+                                <motion.div whileHover={scaleUp} onClick={() => checkMatch(search)}  > 
                                 <BsArrowReturnRight /> &nbsp; {search}  
                                 </motion.div>
                             </IconContext.Provider>
@@ -97,7 +126,7 @@ const scaleDown = { scale: 0.97, transition: { duration: 0.2}}
                             </div>
                        {state.suggestions.map((element: any) => (
                         <div className="suggest">
-                         <motion.div whileHover={scaleUp} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} > 
+                         <motion.div whileHover={scaleUp} whileTap={{ scale: 0.97, transition: { duration: 0.2}}} onClick={() => checkMatch(element.title)} > 
                             <p> {element.title} </p>
                             </motion.div>
                         </div>
