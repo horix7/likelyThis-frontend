@@ -1,0 +1,37 @@
+
+.resultBox {
+    margin-left: 20%;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
+    margin-top: 10%;
+}
+
+.result-icon {
+    height: 70px;
+    width: 70px;
+    background-color: white;
+    box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
+    font-size: 10px;
+    object-fit: contain;
+    position: relative;
+    padding: 10px;
+    margin-top: -20px;
+    border-radius: 100px;
+}
+
+.result-text {
+    color: grey;
+}
+
+.likely {
+    color: green;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.not-likely {
+    color: red;
+    font-weight: bold;
+    padding: 2px;
+}
