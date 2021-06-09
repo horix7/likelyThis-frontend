@@ -8,7 +8,7 @@ import { BsExclamation  } from "react-icons/bs";
 
 export default function ResultCard(props: any) {
     const [state, setState] = useState({
-        likely: false
+        likely: props.likely
     })
   return (
       <Fragment>
