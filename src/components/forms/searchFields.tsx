@@ -98,13 +98,16 @@ window.addEventListener("keydown", (event: any) => {
                 <motion.div transition={{  type: "spring",  stiffness: 700, damping: 30}}>
                 <img src={logo} className="logo-img" alt="logo"/>
                 </motion.div>
+                <motion.div animate={{scale: 0.8, transition: {duration: 0.6}}}>
+                     <p className="home-message"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis molestiae quasi non obcaecati fugiat laboriosam vel. Odio pariatur repudiandae, est.</p>
+             </motion.div>
                 </div>
                 <motion.div  whileHover={{  scale: 1.01, transition: { duration: 0.5 }}}>
                 <div className="searchBox" id="searchBox">
                     <input type="text" onChange={handleInputChange} className="searchInput"/>
                     <div className="searchAction">
                     { !state.loading ? <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
-                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 0.4 , repeat: 1}}}> 
+                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.4,   transition: { duration: 1.2 , repeat: 0}}}> 
                         <BsArrowRightShort />
                         </motion.div>
                     </IconContext.Provider> :  <div className="search-loading">

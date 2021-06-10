@@ -25,22 +25,25 @@ export const MenuItem = (object: any) => {
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <>
-    <motion.li
+    <motion.div
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => window.location.reload()}
+      style={{backgroundColor: "wheat", cursor: "pointer", borderRadius: "10px", marginTop: "-10px", marginBottom:"5px",textAlign: "center", padding: "2px"}}
     >
       <p>home </p>
-    </motion.li>
-     <motion.li
+    </motion.div>
+     <motion.div
      variants={variants}
      whileHover={{ scale: 1.1 }}
      whileTap={{ scale: 0.95 }}
      onClick={() => window.location.reload()}
+     style={{backgroundColor: "wheat", cursor: "pointer", borderRadius: "10px", textAlign: "center", padding: "2px"}}
+
    >
      <p>About Us </p>
-   </motion.li>
+   </motion.div>
    </>
   );
 };
