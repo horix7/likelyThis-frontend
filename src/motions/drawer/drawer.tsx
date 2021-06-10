@@ -33,7 +33,7 @@ export const Menu = () => {
 
   return (
     <div className="body">
-
+    <motion.div>
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
@@ -44,6 +44,8 @@ export const Menu = () => {
       <Navigation />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
+    </motion.div>
+
     </div>
 
   );

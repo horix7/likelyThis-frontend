@@ -37,12 +37,12 @@
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgb(240, 238, 238); 
+    /* box-shadow: inset 0 0 5px rgb(240, 238, 238);  */
     border-radius: 10px;
   }
    
@@ -137,6 +137,10 @@
     margin-left: 10%;
     border-radius: 10px;
 }
+
+.logo-img {
+    width: 200px;
+}
 @media only screen and (max-width: 600px) {
     .linear-progress {
         background-color: white;
@@ -144,12 +148,18 @@
         margin-left: 20%;
         border-radius: 10px;
     }
+
+
+
+    .logo-img {
+        width: 100px;
+    }
     .suggestions {
         max-height: 60vh;
         width: 120%;
         overflow: hidden;
         overflow-x: hidden;
-        overflow-y: hidden;
+        overflow-y: scroll;
     }
     .suggest {
         font-weight: lighter;
@@ -164,7 +174,7 @@
     .search-icon {
         background-color: #5CE1E6;
         border-radius: 50px;
-        width: 60%;
+        width: 40%;
         display: inline-block;
         height: 100%;
         border: 2px solid white;

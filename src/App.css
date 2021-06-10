@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&display=swap');
 .App {
   text-align: center;
 }
@@ -5,6 +6,15 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.home-message {
+  font-weight: bold;
+  font-size: x-large;
+  text-align: start;
+  width: 120%;
+  color: grey;
+  font-family: 'Raleway', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +45,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .home-message {
+    font-size: small;
+    font-weight: lighter;
+  }
+
 }
