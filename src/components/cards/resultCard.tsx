@@ -18,7 +18,7 @@ export default function ResultCard(props: any) {
     <div className="boxHolder">
      <div className="resultBox">
         <Card style={{border: "none"}}>
-            <h1 className="result-text">your are {state.likely ?  <span className="likely">likely</span>  :  <span className="not-likely">not likely </span> }to transfer {props.likely.state.text} </h1>
+            <h1 className="result-text"> {props.likely.state.text} is {state.likely ?  <span className="likely">likely </span>  :  <span className="not-likely">unlikely </span> }to transfer </h1>
         </Card>
        {state.likely ?  <IconContext.Provider value={{ color: "green", className: "result-icon" }}>
                 <motion.div animate={{ scale: 1.5, transition: { duration: 1.4}}} whileHover={{ scale: 0.9, transition: { duration: 1.2}}} > 
