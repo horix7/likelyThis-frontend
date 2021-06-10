@@ -8,15 +8,17 @@ import { BsExclamation  } from "react-icons/bs";
 
 export default function ResultCard(props: any) {
     const [state, setState] = useState({
-        likely: props.likely
+        likely: props.likely.state.match
     })
+
+    console.log(props)
   return (
       <Fragment>
     <motion.div whileHover={{ scale: 1.2,   transition: { duration: 0.4 , repeat: 0}}} >  
     <div className="boxHolder">
      <div className="resultBox">
         <Card style={{border: "none"}}>
-            <h1 className="result-text">your are {state.likely ?  <span className="likely">likely</span>  :  <span className="not-likely">not likely </span> }to transfer Introductory Discrete Mathematics </h1>
+            <h1 className="result-text">your are {state.likely ?  <span className="likely">likely</span>  :  <span className="not-likely">not likely </span> }to transfer {props.likely.state.text} </h1>
            
         </Card>
        {state.likely ?  <IconContext.Provider value={{ color: "green", className: "result-icon" }}>

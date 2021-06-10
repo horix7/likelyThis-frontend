@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+.search-loading {
+    padding: 30px;
+    border-radius: 100px;
+    font-size: small;
+}
 .searchBox {
     width: 80vw;
     padding: 3px;
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.651);
     box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
     display: grid;
     grid-template-columns: 1fr 100px;

@@ -7,20 +7,22 @@ import { motion } from "framer-motion";
 import { LinearProgress } from "@material-ui/core";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { HiOutlineLightBulb  } from "react-icons/hi";
-import { gql, useQuery } from '@apollo/client';
+import { CircularProgress } from "@material-ui/core";
 import axios from 'axios';
 
 
-export default function SearchField () {
+export default function SearchField(props: any) {
 
    const [state, setState] = useState({
        text: "",
        suggestions: [],
-       match: false
+       match: false,
+       loading: false
    })
 
    const [search, setSearch] = useState("")
    const checkMatch = async (title :string) => {
+
     const titleQuery = `
     query getCourses{
         courses(where: { _q: \"${title}\" }) {
@@ -28,34 +30,40 @@ export default function SearchField () {
         }
     }
     `
+    let newState = {...state}
+
+        newState.loading = true
+        setState(newState)
     const results = await axios.post(
         "http://localhost:1337/graphql", {
             query: titleQuery
         }
     )
 
-    let newState = {...state}
 
     const courses = !results.data.data.courses ? [] : results.data.data.courses
-    newState.match = courses.length === 1
+    newState.match = courses.length >= 1
+    newState.loading = false 
+    newState.text = title 
     
     setState(newState)
-
-    console.log(state.match)
+    props.updateGlobal.updateGlobal({...newState})
+    
 }
+    
     const handleInputChange = async (event: any ) => {
-
     const searchCourse = async (graphQuery: string) => {
+        
         const results = await axios.post(
             "http://localhost:1337/graphql", {
                 query: graphQuery
             }
         )
 
-        let newState = {...state}
-
+        
         const courses = !results.data.data.courses ? [] : results.data.data.courses
         newState.suggestions = courses
+        newState.loading = false 
 
         setState(newState)
     }
@@ -73,8 +81,8 @@ export default function SearchField () {
         }
     }
     `
-    searchCourse(Suggestion)
-}
+        searchCourse(Suggestion)
+    }
 }
 
 const scaleUp = { scale: 1.08, transition: { duration: 0.2}}
@@ -97,12 +105,15 @@ window.addEventListener("keydown", (event: any) => {
                 <div className="searchBox" id="searchBox">
                     <input type="text" onChange={handleInputChange} className="searchInput"/>
                     <div className="searchAction">
-                    <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
-                        <motion.div whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 0.4 , repeat: 1}}}> 
-                            <BsArrowRightShort />
+                    { !state.loading ? <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
+                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 0.4 , repeat: 1}}}> 
+                        <BsArrowRightShort />
                         </motion.div>
-                    </IconContext.Provider>
-
+                    </IconContext.Provider> :  <div className="search-loading">
+                        <motion.div> 
+                        <CircularProgress  color={"inherit"} style={{color: "#5CE1E6", width: "40px"}} />
+                        </motion.div>
+                    </div> }
                     </div>  
                     <div className="suggestions">
                    <>
