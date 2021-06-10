@@ -11,7 +11,7 @@ import { CircularProgress } from "@material-ui/core";
 import axios from 'axios';
 
 
-export default function SearchField () {
+export default function SearchField(props: any) {
 
    const [state, setState] = useState({
        text: "",
@@ -42,15 +42,16 @@ export default function SearchField () {
 
 
     const courses = !results.data.data.courses ? [] : results.data.data.courses
-    newState.match = courses.length === 1
+    newState.match = courses.length >= 1
     newState.loading = false 
+    newState.text = title 
     
-    console.log(newState.match)
     setState(newState)
-
+    props.updateGlobal.updateGlobal({...newState})
+    
 }
+    
     const handleInputChange = async (event: any ) => {
-
     const searchCourse = async (graphQuery: string) => {
         
         const results = await axios.post(
@@ -80,8 +81,8 @@ export default function SearchField () {
         }
     }
     `
-    searchCourse(Suggestion)
-}
+        searchCourse(Suggestion)
+    }
 }
 
 const scaleUp = { scale: 1.08, transition: { duration: 0.2}}
@@ -105,7 +106,7 @@ window.addEventListener("keydown", (event: any) => {
                     <input type="text" onChange={handleInputChange} className="searchInput"/>
                     <div className="searchAction">
                     { !state.loading ? <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
-                        <motion.div whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 0.4 , repeat: 1}}}> 
+                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 0.4 , repeat: 1}}}> 
                         <BsArrowRightShort />
                         </motion.div>
                     </IconContext.Provider> :  <div className="search-loading">

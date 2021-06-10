@@ -8,10 +8,9 @@ export default function Home(props: any) {
       <Fragment>
       <HomeNav />
       <header className="App-header">
-        <SearcField />
+        <SearcField updateGlobal={{...props}} />
       </header>
       </Fragment>
-
   );
 }
 

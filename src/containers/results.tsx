@@ -10,7 +10,7 @@ export default function resultPage(props: any) {
   return (
       <Fragment>
       <HomeNav />
-        <ResultCard likely={props.likely} />
+        <ResultCard likely={props} />
       </Fragment>
 
   );
