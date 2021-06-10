@@ -10,9 +10,7 @@ import { HiOutlineLightBulb  } from "react-icons/hi";
 import { CircularProgress } from "@material-ui/core";
 import axios from 'axios';
 
-
 export default function SearchField(props: any) {
-
    const [state, setState] = useState({
        text: "",
        suggestions: [],
@@ -35,14 +33,14 @@ export default function SearchField(props: any) {
         newState.loading = true
         setState(newState)
     const results = await axios.post(
-        "http://localhost:1337/graphql", {
+        "http://172.20.10.2:1337/graphql", {
             query: titleQuery
         }
     )
 
 
     const courses = !results.data.data.courses ? [] : results.data.data.courses
-    newState.match = courses.length >= 1
+    newState.match = courses.length === 1
     newState.loading = false 
     newState.text = title 
     
@@ -55,7 +53,7 @@ export default function SearchField(props: any) {
     const searchCourse = async (graphQuery: string) => {
         
         const results = await axios.post(
-            "http://localhost:1337/graphql", {
+            "http://172.20.10.2:1337/graphql", {
                 query: graphQuery
             }
         )
@@ -141,7 +139,7 @@ window.addEventListener("keydown", (event: any) => {
                             <p> {element.title} </p>
                             </motion.div>
                         </div>
-                       )) } </> : state.text && state.text.split("").length ?  <LinearProgress  style={{width: "80%", marginLeft: "10%", backgroundColor: "white", color: "red"}} /> : null }
+                       )) } </> : state.text && state.text.split("").length ?  <LinearProgress color="primary" className="linear-progress" /> : null }
                     </div>
                 </div>
                 </motion.div>

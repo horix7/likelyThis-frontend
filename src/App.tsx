@@ -4,6 +4,18 @@ import { client } from "./client/apolloClient";
 import { ApolloProvider } from '@apollo/client';
 import  Home from "./containers/home";
 import ResultPage from "./containers/results"
+import { createMuiTheme , ThemeProvider  } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#5CE1E6",
+    },
+    secondary: {
+      main: '#ff9100',
+    },
+  },
+})
 
 function App() {
   const [state, setState] = useState({
@@ -21,10 +33,13 @@ function App() {
     console.log(state)
   }, [state])
   return (
+    
     <ApolloProvider client={client}>
-    <div className="App">
-      {state.results ? <ResultPage state={state} updateGlobal={updateGlobal} /> : <Home updateGlobal={updateGlobal} />}
-    </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          {state.results ? <ResultPage state={state} updateGlobal={updateGlobal} /> : <Home updateGlobal={updateGlobal} />}
+        </div>
+      </ThemeProvider>
     </ApolloProvider>
 
   );

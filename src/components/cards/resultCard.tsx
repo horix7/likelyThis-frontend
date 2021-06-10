@@ -14,7 +14,7 @@ export default function ResultCard(props: any) {
     console.log(props)
   return (
       <Fragment>
-    <motion.div whileHover={{ scale: 1.2,   transition: { duration: 0.4 , repeat: 0}}} >  
+    <motion.div animate={{ scale: 1.2,   transition: { duration: 0.4 , repeat: 0}}}  whileHover={{ rotate: 2, scale: 1.4,  transition: { duration: 0.4 , repeat: 0}}} >  
     <div className="boxHolder">
      <div className="resultBox">
         <Card style={{border: "none"}}>
@@ -22,11 +22,11 @@ export default function ResultCard(props: any) {
            
         </Card>
        {state.likely ?  <IconContext.Provider value={{ color: "green", className: "result-icon" }}>
-                <motion.div animate={{ scale: 1.4, transition: { duration: 1.4}}} > 
+                <motion.div animate={{ scale: 1.5, transition: { duration: 1.4}}} whileHover={{ scale: 0.9, transition: { duration: 1.1}}} > 
                     <GiCheckMark />
                  </motion.div>
              </IconContext.Provider> :  <IconContext.Provider value={{ color: "red", className: "result-icon" }}>
-                <motion.div animate={{ scale: 1.4, transition: { duration: 1.4}}} > 
+                <motion.div animate={{ scale: 1.5, transition: { duration: 1.4}}} whileHover={{ scale: 0.9, transition: { duration: 1.1}}} > 
                     <BsExclamation />
                  </motion.div>
              </IconContext.Provider>}
