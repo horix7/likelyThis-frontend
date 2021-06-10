@@ -130,3 +130,79 @@
 .searchAction {
     height: 10%;
 }
+
+.linear-progress {
+    background-color: white;
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .linear-progress {
+        background-color: white;
+        width: 100%;
+        margin-left: 20%;
+        border-radius: 10px;
+    }
+    .suggestions {
+        max-height: 60vh;
+        width: 120%;
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    .suggest {
+        font-weight: lighter;
+        font-size: small;
+        border-bottom: 1px solid whitesmoke;
+        margin-left: 10%;
+        text-align: start;
+        padding:0px 0px;
+    }
+    
+    
+    .search-icon {
+        background-color: #5CE1E6;
+        border-radius: 50px;
+        width: 60%;
+        display: inline-block;
+        height: 100%;
+        border: 2px solid white;
+        font-size: small;
+        margin-left: 25%;
+    }
+    
+    .searchInput {
+        outline: none;
+        /* border-radius: 50px; */
+        text-align: center;
+        background: transparent;
+        border: none;
+        width: 95%;
+        max-width: 100%;
+        margin-left: 4%;
+        padding-left: 30px;
+        font-weight: lighter;
+        color: rgb(78, 78, 78);
+        font-size: medium;
+        border-bottom: 1px solid rgb(235, 235, 235);
+        font-family: 'Roboto', sans-serif;
+    }
+    
+   
+
+    .searchBox {
+        width: 80vw;
+        padding: 1px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.651);
+        box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
+        display: grid;
+        grid-template-columns: 1fr 100px;
+        border-radius: 50px;
+        top: 0;
+        position: sticky;
+    }
+    
+    
+  }
