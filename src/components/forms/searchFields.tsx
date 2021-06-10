@@ -96,7 +96,7 @@ window.addEventListener("keydown", (event: any) => {
             <Fragment>
                 <div className="logoHolder">
                 <motion.div transition={{  type: "spring",  stiffness: 700, damping: 30}}>
-                <img src={logo} width="200px" alt="logo"/>
+                <img src={logo} className="logo-img" alt="logo"/>
                 </motion.div>
                 </div>
                 <motion.div  whileHover={{  scale: 1.01, transition: { duration: 0.5 }}}>

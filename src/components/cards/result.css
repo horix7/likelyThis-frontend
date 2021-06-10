@@ -1,6 +1,7 @@
 
 .boxHolder {
     text-align: center;
+    position: sticky;
 }
 .resultBox {
     margin-left: 20%;
@@ -9,6 +10,7 @@
     text-align: center;
     box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
     margin-top: 10%;
+    position: sticky;
 }
 
 .result-icon {
@@ -46,8 +48,8 @@
         font-size: medium;
     }
     .resultBox {
-        margin-left: 20%;
-        width: 60%;
+        margin-left: 15%;
+        width: 70%;
         padding: 5px;
         text-align: center;
         box-shadow: 0 1.4rem 3rem rgba(0, 155, 147, 0.275)!important;
