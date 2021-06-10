@@ -42,7 +42,7 @@ export default function SearchField(props: any) {
 
 
     const courses = !results.data.data.courses ? [] : results.data.data.courses
-    newState.match = courses.length >= 1
+    newState.match = courses.length === 1
     newState.loading = false 
     newState.text = title 
     
