@@ -33,7 +33,7 @@ export default function SearchField(props: any) {
         newState.loading = true
         setState(newState)
     const results = await axios.post(
-        "http://172.20.10.2:1337/graphql", {
+        "https://likelythis.herokuapp.com/graphql", {
             query: titleQuery
         }
     )
@@ -53,7 +53,7 @@ export default function SearchField(props: any) {
     const searchCourse = async (graphQuery: string) => {
         
         const results = await axios.post(
-            "http://172.20.10.2:1337/graphql", {
+            "https://likelythis.herokuapp.com/graphql", {
                 query: graphQuery
             }
         )
