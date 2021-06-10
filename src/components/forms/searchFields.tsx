@@ -107,7 +107,7 @@ window.addEventListener("keydown", (event: any) => {
                     <input type="text" onChange={handleInputChange} className="searchInput"/>
                     <div className="searchAction">
                     { !state.loading ? <IconContext.Provider value={{ color: "white", className: "search-icon" }}>
-                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.4,   transition: { duration: 1.2 , repeat: 0}}}> 
+                        <motion.div onClick={() => checkMatch(search)}  whileHover={{ rotate: 360, transition: { duration: 0.2}}} animate={{ scale: 1.5,   transition: { duration: 1.2 , repeat: 0}}}> 
                         <BsArrowRightShort />
                         </motion.div>
                     </IconContext.Provider> :  <div className="search-loading">
